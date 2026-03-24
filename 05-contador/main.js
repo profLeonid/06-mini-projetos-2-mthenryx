@@ -50,8 +50,38 @@ function criarListaPotencia(quantidade){
     return listaPotencia
 }
 
-console.log(criarListaNumeros(5))
-console.log(criarListaPares(5))
-console.log(criarListaImpares(5))
-console.log(criarListaMult(5))
-console.log(criarListaPotencia(5))
+function criarLinha(num, par, impar, mult, potencia){
+    const tbody = document.getElementById("tbody")
+    const tr    = document.createElement("tr")
+
+    const tdNum      = document.createElement("td")
+    const tdPar      = document.createElement("td")
+    const tdImpar    = document.createElement("td")
+    const tdMult     = document.createElement("td")
+    const tdPotencia = document.createElement("td")
+
+    tdNum.textContent      = num
+    tdPar.textContent      = par
+    tdImpar.textContent    = impar
+    tdMult.textContent     = mult
+    tdPotencia.textContent = potencia
+
+    tr.replaceChildren(tdNum, tdPar, tdImpar, tdMult, tdPotencia)
+    tbody.appendChild(tr)
+}
+
+function handClick(){
+    const quantidade = Number(document.getElementById("quantidade").value)
+
+    const listaNum      = criarListaNumeros(quantidade)
+    const listaPares    = criarListaPares(quantidade)
+    const listaImpares  = criarListaImpares(quantidade)
+    const listaMult     = criarListaMult(quantidade)
+    const listaPotencia = criarListaPotencia(quantidade)
+
+    document.getElementById("tbody").replaceChildren()
+
+    for(let i = 0; i < quantidade; i++){
+        criarLinha(listaNum[i], listaPares[i], listaImpares[i], listaMult[i], listaPotencia[i])
+    }
+}
