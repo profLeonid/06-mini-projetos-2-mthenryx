@@ -1,19 +1,9 @@
 "use scrict"
 
-function criarListaNumeros(numero){
-    let listaNumero = []
-
-    for(let i = 1; i <= numero; i++){
-        listaNumero.push(i)
-    }
-
-    return listaNumero
-}
-
 function calcularAdicao(numero){
     let listaAdicao = []
 
-    for(let i = 1; i <= numero; i++){
+    for(let i = 1; i <= 10; i++){
         listaAdicao.push(Number(numero) + i)
     }
 
@@ -23,7 +13,7 @@ function calcularAdicao(numero){
 function calcularSubtracao(numero){
     let listaSubtracao = []
 
-    for(let i = 1; i <= numero; i++){
+    for(let i = 1; i <= 10; i++){
         listaSubtracao.push(Number(numero) - i)
     }
 
@@ -33,7 +23,7 @@ function calcularSubtracao(numero){
 function calcularMultiplicacao(numero){
     let listaMultiplicacao = []
 
-    for(let i = 1; i <= numero; i++){
+    for(let i = 1; i <= 10; i++){
         listaMultiplicacao.push(Number(numero) * i)
     }
 
@@ -43,7 +33,7 @@ function calcularMultiplicacao(numero){
 function calcularDivisao(numero){
     let listaDivisao = []
 
-    for(let i = 1; i <= numero; i++){
+    for(let i = 1; i <= 10; i++){
         listaDivisao.push(Number(numero / i).toFixed(2))
     }
 
@@ -73,7 +63,8 @@ function criarLinha(num, add, sub, mult, divisao){
 function handClick(){
     const numero = Number(document.getElementById("numero").value)
 
-    const listaNumero        = criarListaNumeros(numero)
+    const listaNumero = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     const listaAdicao        = calcularAdicao(numero)
     const listaSubtracao     = calcularSubtracao(numero)
     const listaMultiplicacao = calcularMultiplicacao(numero)
@@ -81,7 +72,7 @@ function handClick(){
 
     document.getElementById("tbody").replaceChildren()
 
-    for(let i = 0; i < numero; i++){
+    for(let i = 0; i <= 9; i++){
         criarLinha(listaNumero[i], listaAdicao[i], listaSubtracao[i], listaMultiplicacao[i], listaDivisao[i])
     }
 }
