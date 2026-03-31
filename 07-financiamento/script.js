@@ -67,9 +67,9 @@ function handClick(){
     const taxaInput     = document.getElementById("taxa-juros").value
     const parcelasInput = document.getElementById("numero-parcelas").value
 
-    const valorTotal     = Number(valorInput)
-    const taxaJuros      = Number(taxaInput)
-    const numeroParcelas = Number(parcelasInput)
+    const valorTotal     = Number(valorInput).toFixed(2)
+    const taxaJuros      = Number(taxaInput).toFixed(2)
+    const numeroParcelas = Number(parcelasInput).toFixed(2)
 
     const amortizacao       = calcularParcelas(valorTotal, numeroParcelas)
     const listaSaldoDevedor = calcularSaldoDevedor(valorTotal, amortizacao, numeroParcelas)
